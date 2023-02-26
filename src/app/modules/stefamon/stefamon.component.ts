@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+
 import { StefamonService } from '../../core/services/stefamon.service';
 
 @Component({
   selector: 'app-stefamon',
   templateUrl: './stefamon.component.html',
-  styleUrls: ['./stefamon.component.css'],
-  providers: [StefamonService]
+  styleUrls: ['./stefamon.component.css']
 })
 export class StefamonComponent implements OnInit {
 

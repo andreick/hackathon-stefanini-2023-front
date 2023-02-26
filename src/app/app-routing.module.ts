@@ -1,13 +1,18 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { HomeComponent } from './modules/home/home.component';
-import { StefamonComponent } from './modules/stefamon/stefamon.component';
 import { AuthGuard } from './core/guards/auth.guard';
 
 const routes: Routes = [
-  { path: 'home', component: HomeComponent },
-  { path: 'stefamon', component: StefamonComponent, canActivate: [AuthGuard] },
-  { path: '', redirectTo: '/home', pathMatch: 'full' }
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
+  {
+    path: 'home',
+    loadChildren: () => import('./modules/home/home.module').then((module) => module.HomeModule)
+  },
+  {
+    path: 'stefamon',
+    loadChildren: () => import('./modules/stefamon/stefamon.module').then((module) => module.StefamonModule),
+    canLoad: [AuthGuard]
+  },
 ];
 
 @NgModule({
