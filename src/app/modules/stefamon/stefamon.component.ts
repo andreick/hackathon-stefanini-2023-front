@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { StefamonService } from '../../core/services/stefamon.service';
+import { StefamonService } from '../../core/services/stefamon/stefamon.service';
 
 @Component({
   selector: 'app-stefamon',

@@ -3,14 +3,14 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
 import { environment } from 'src/environments/environment';
-import { CredenciaisJogador } from '../models/credenciais-jogador.model';
+import { CredenciaisJogador } from '../../models/credenciais-jogador.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class LoginService {
 
-  private readonly API = `${environment.urlBackend}/jogador/login`
+  private readonly API = `${environment.urlBackend}/jogadores/login`
 
   constructor(
     private http: HttpClient,
