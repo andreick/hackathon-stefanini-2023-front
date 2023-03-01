@@ -1,0 +1,22 @@
+:host ::ng-deep .p-card .p-card-body {
+    background-color: var(--app-primary-color);
+    padding: 0;
+}
+
+:host ::ng-deep .p-card .p-card-header {
+    background-color: #f2f2f2;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+}
+
+.stefamon-nome {
+    color: var(--primary-color-text);
+    font-size: 2.25rem;
+    font-style: italic;
+    text-align: center;
+}
+
+.attributes p {
+    font-size: 1.25rem;
+    padding: 0.25rem 0.5rem;
+}

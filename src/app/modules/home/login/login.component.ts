@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { first } from 'rxjs/operators';
 
-import { CredenciaisJogador } from 'src/app/core/models/credenciais-jogador.model';
+import { JogadorLogin } from 'src/app/core/models/jogador/jogador-login.model';
 import { LoginService } from 'src/app/core/services/login/login.service';
 
 @Component({
@@ -31,10 +31,10 @@ export class LoginComponent implements OnInit {
   get senha() { return this.form.get('senha') }
 
   entrar(): void {
-    const login = this.form.value as CredenciaisJogador
+    const login = this.form.value as JogadorLogin
     this.loginService.authenticate(login)
       .pipe(first())
-      .subscribe(() => { this.router.navigate(['stefamon']) })
+      .subscribe(() => { this.router.navigate(['stefamons']) })
   }
 
 }

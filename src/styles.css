@@ -1,14 +1,16 @@
+:root {
+  --app-primary-color: #191919;
+}
+
 /* Famoso reset do css */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-
-  font-family: Roboto, serif;
 }
 
 body {
-  background-color: #191919;
+  background-color: var(--app-primary-color);
 }
 
 .flex-grow-1 {

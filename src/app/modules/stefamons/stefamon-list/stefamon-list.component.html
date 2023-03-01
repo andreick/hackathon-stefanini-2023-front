@@ -1,0 +1,7 @@
+<div *ngIf="stefamons$ | async as stefamons">
+    <div class="p-grid p-m-0">
+        <div *ngFor="let stefamon of stefamons" class="p-col-6 p-md-4 p-lg-3 p-xl-2">
+            <app-stefamon [stefamon]="stefamon"></app-stefamon>
+        </div>
+    </div>
+</div>

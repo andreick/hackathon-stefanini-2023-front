@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
 import { environment } from 'src/environments/environment';
-import { CredenciaisJogador } from '../../models/credenciais-jogador.model';
+import { JogadorLogin } from '../../models/jogador/jogador-login.model';
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +16,7 @@ export class LoginService {
     private http: HttpClient,
   ) { }
 
-  authenticate(credenciais: CredenciaisJogador): Observable<void> {
+  authenticate(credenciais: JogadorLogin): Observable<void> {
     return this.http.post<void>(this.API, credenciais)
   }
 

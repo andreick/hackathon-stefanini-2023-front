@@ -2,10 +2,11 @@ import { NgModule } from '@angular/core';
 
 import { StefamonRoutingModule } from './stefamon-routing.module';
 import { SharedModule } from 'src/app/shared/shared.module';
-import { StefamonComponent } from './stefamon.component';
+import { StefamonComponent } from './stefamon/stefamon.component';
+import { StefamonListComponent } from './stefamon-list/stefamon-list.component';
 
 @NgModule({
-  declarations: [StefamonComponent],
+  declarations: [StefamonComponent, StefamonListComponent],
   imports: [
     SharedModule,
     StefamonRoutingModule
