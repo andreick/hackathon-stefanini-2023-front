@@ -1,21 +1,25 @@
-<div class="p-jc-end p-shadow-3 p-p-5 card-login">
-    <div class="p-ai-center vertical-container">
-        <h2 class="p-text-center p-mb-3">Login</h2>
-        <form [formGroup]="form" class="p-fluid p-formgrid p-grid p-my-3">
-            <div class="p-field p-col-12 p-md-6">
-                <label for="nickname" class="p-sr-only">Apelido</label>
-                <input id="nickname" type="text" formControlName="nickname" pInputText placeholder="Apelido">
-                <app-input-validation inputLabel="Apelido" [control]="nickname"
-                    [notBlank]="true"></app-input-validation>
-            </div>
-            <div class="p-field p-col-12 p-md-6">
-                <label for="senha" class="p-sr-only">Senha</label>
-                <input id="senha" type="password" formControlName="senha" pInputText placeholder="Senha">
-                <app-input-validation inputLabel="Senha" [control]="senha" [notBlank]="true" [minLength]="4"
-                    [maxLength]="10"></app-input-validation>
-            </div>
-            <button pButton type="button" class="p-button-success" label="Entrar" [disabled]="!form.valid"
+<p-card>
+    <p-header>
+        <h2 class="p-text-center text-4xl p-pt-4">Login</h2>
+    </p-header>
+    <form [formGroup]="form" class="p-fluid p-formgrid p-grid">
+        <div class="p-field p-col-12 p-md-6">
+            <label for="nickname" class="p-sr-only">Apelido</label>
+            <input pInputText id="nickname" type="text" placeholder="Apelido" class="p-inputtext-lg"
+                formControlName="nickname">
+            <app-input-validation inputLabel="Apelido" class="inputvalidation-lg" [control]="nickname"
+                [notBlank]="true"></app-input-validation>
+        </div>
+        <div class="p-field p-col-12 p-md-6">
+            <label for="senha" class="p-sr-only">Senha</label>
+            <input pInputText id="senha" type="password" placeholder="Senha" class="p-inputtext-lg"
+                formControlName="senha">
+            <app-input-validation inputLabel="Senha" class="inputvalidation-lg" [control]="senha" [notBlank]="true"
+                [minLength]="4" [maxLength]="10"></app-input-validation>
+        </div>
+        <div class="p-col-12 p-mt-2">
+            <button pButton type="button" label="Entrar" class="p-button-success p-button-lg" [disabled]="!form.valid"
                 (click)="entrar()"></button>
-        </form>
-    </div>
-</div>
+        </div>
+    </form>
+</p-card>

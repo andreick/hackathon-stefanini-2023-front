@@ -1,0 +1,7 @@
+:hover .logo {
+    cursor: pointer;
+}
+
+::ng-deep .p-menuitem-text {
+    font-size: 1.5rem;
+}

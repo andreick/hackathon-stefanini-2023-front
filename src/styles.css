@@ -10,3 +10,87 @@
 body {
   background-color: #191919;
 }
+
+.flex-grow-1 {
+  flex-grow: 1;
+}
+
+.gap-1 {
+  gap: 0.25rem;
+}
+
+.gap-2 {
+  gap: 0.5rem;
+}
+
+.gap-3 {
+  gap: 1rem;
+}
+
+.gap-4 {
+  gap: 1.5rem;
+}
+
+.gap-5 {
+  gap: 2rem;
+}
+
+.gap-6 {
+  gap: 3rem;
+}
+
+.w-full {
+  width: 100%;
+}
+
+.w-screen {
+  width: 100vw;
+}
+
+.max-w-full {
+  max-width: 100%;
+}
+
+.max-w-screen {
+  max-width: 100vw;
+}
+
+.h-full {
+  height: 100%;
+}
+
+.h-screen {
+  height: 100vh;
+}
+
+.max-h-full {
+  max-height: 100%;
+}
+
+.max-h-screen {
+  max-height: 100vh;
+}
+
+.text-xl {
+  font-size: 1.25rem;
+}
+
+.text-2xl {
+  font-size: 1.5rem;
+}
+
+.text-3xl {
+  font-size: 1.75rem;
+}
+
+.text-4xl {
+  font-size: 2rem;
+}
+
+.text-5xl {
+  font-size: 2.5rem;
+}
+
+.text-6xl {
+  font-size: 3rem;
+}
