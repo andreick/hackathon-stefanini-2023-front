@@ -8,13 +8,14 @@ import { MenuItem } from 'primeng/api';
 })
 export class HeaderComponent implements OnInit {
 
-  title = 'hackathon-angular';
   items!: MenuItem[];
 
   ngOnInit(): void {
 
     this.items = [
-      { label: 'Stefamon', disabled: true },
+      { label: 'Stefamons', routerLink: ['stefamons'] },
+      { label: 'Jogadores', visible: false },
+      { label: 'Arena', visible: false }
     ];
   }
 

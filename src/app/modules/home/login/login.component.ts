@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { first } from 'rxjs/operators';
 
 import { CredenciaisJogador } from 'src/app/core/models/credenciais-jogador.model';
-import { LoginService } from 'src/app/core/services/login.service';
+import { LoginService } from 'src/app/core/services/login/login.service';
 
 @Component({
   selector: 'app-login',
