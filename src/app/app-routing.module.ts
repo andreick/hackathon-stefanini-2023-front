@@ -9,7 +9,7 @@ const routes: Routes = [
     loadChildren: () => import('./modules/home/home.module').then((module) => module.HomeModule)
   },
   {
-    path: 'stefamon',
+    path: 'stefamons',
     loadChildren: () => import('./modules/stefamon/stefamon.module').then((module) => module.StefamonModule),
     canLoad: [AuthGuard]
   },
