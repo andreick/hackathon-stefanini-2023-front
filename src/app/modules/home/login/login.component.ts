@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { finalize, first } from 'rxjs/operators';
 
@@ -13,31 +13,20 @@ import { LoginService } from 'src/app/core/services/login/login.service';
 })
 export class LoginComponent implements OnInit {
 
-  form!: FormGroup
-
   loading = false
 
   constructor(
-    private formBuilder: FormBuilder,
     private loginService: LoginService,
-    private router: Router,
+    private router: Router
   ) { }
 
-  ngOnInit(): void {
-    this.form = this.formBuilder.group(
-      { nickname: [''], senha: [''] }
-    )
-  }
+  ngOnInit(): void { }
 
-  get nickname() { return this.form.get('nickname') }
-  get senha() { return this.form.get('senha') }
-
-  entrar(): void {
+  logIn(form: FormGroup): void {
     this.loading = true;
-    const login = this.form.value as JogadorLogin
+    const login = form.value as JogadorLogin
     this.loginService.authenticate(login)
       .pipe(first(), finalize(() => this.loading = false))
       .subscribe(() => { this.router.navigate(['stefamons']) })
   }
-
 }
