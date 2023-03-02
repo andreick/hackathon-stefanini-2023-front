@@ -13,7 +13,7 @@ export class HeaderComponent implements OnInit {
   ngOnInit(): void {
 
     this.items = [
-      { label: 'Stefamons', routerLink: ['stefamons'] },
+      { label: 'StefaMons', routerLink: ['stefamons'] },
       { label: 'Jogadores', visible: false },
       { label: 'Arena', visible: false }
     ];
