@@ -8,7 +8,7 @@ import { Stefamon } from 'src/app/core/models/stefamon/stefamon.model';
 })
 export class StefamonComponent implements OnInit {
 
-  @Input() stefamon: Stefamon
+  @Input() stefamon!: Stefamon
 
   constructor() { }
 
