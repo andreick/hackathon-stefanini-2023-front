@@ -11,14 +11,21 @@ import { StefamonService } from 'src/app/core/services/stefamon/stefamon.service
 })
 export class StefamonListComponent implements OnInit {
 
-  stefamons$: Observable<Stefamon[]>
+  stefamons$!: Observable<Stefamon[]>
+
+  loading = false
 
   constructor(
     private stefamonService: StefamonService
   ) { }
 
   ngOnInit(): void {
-    this.stefamons$ = this.stefamonService.fetchStefamons()
+    this.fetchStefamons()
   }
 
+  fetchStefamons(): void {
+    this.loading = true;
+    this.stefamons$ = this.stefamonService.fetchStefamons()
+      .pipe(finalize(() => this.loading = false))
+  }
 }

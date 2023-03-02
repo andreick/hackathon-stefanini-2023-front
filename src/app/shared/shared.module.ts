@@ -7,14 +7,17 @@ import { DomSanitizer } from "@angular/platform-browser";
 
 import { CardModule } from 'primeng/card';
 import { ButtonModule } from 'primeng/button';
+import { BlockUIModule } from 'primeng/blockui';
 import { MenubarModule } from 'primeng/menubar';
 import { InputTextModule } from 'primeng/inputtext';
+import { ProgressSpinnerModule } from 'primeng/progressspinner';
 
 import { HeaderComponent } from './components/header/header.component';
 import { InputValidationComponent } from './components/input-validation/input-validation.component';
+import { BlockSpinnerComponent } from './components/block-spinner/block-spinner.component';
 
 @NgModule({
-  declarations: [HeaderComponent, InputValidationComponent],
+  declarations: [HeaderComponent, InputValidationComponent, BlockSpinnerComponent],
   imports: [
     CommonModule,
     HttpClientModule,
@@ -22,8 +25,10 @@ import { InputValidationComponent } from './components/input-validation/input-va
     MatIconModule,
     CardModule,
     ButtonModule,
+    BlockUIModule,
     MenubarModule,
     InputTextModule,
+    ProgressSpinnerModule
   ],
   exports: [
     CommonModule,
@@ -32,10 +37,10 @@ import { InputValidationComponent } from './components/input-validation/input-va
     MatIconModule,
     CardModule,
     ButtonModule,
-    MenubarModule,
     InputTextModule,
     HeaderComponent,
-    InputValidationComponent
+    InputValidationComponent,
+    BlockSpinnerComponent
   ],
 })
 export class SharedModule {
