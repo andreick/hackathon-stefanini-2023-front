@@ -1,0 +1,10 @@
+<div class="p-grid p-ai-center p-jc-evenly h-full p-m-0">
+    <div class="p-col-10 p-md-8 p-lg-6 p-xl-4">
+        <app-jogador-form title="Cadastre-se" submitLabel="Cadastrar" (submitEvent)="signUp($event)">
+            <div class="p-d-flex p-ai-center p-mt-3">
+                <p>Já possui uma conta?</p>
+                <button pButton label="Entre para jogar" class="p-button-link p-pl-1" [routerLink]="['']"></button>
+            </div>
+        </app-jogador-form>
+    </div>
+</div>

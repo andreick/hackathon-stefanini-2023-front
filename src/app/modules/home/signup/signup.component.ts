@@ -3,15 +3,15 @@ import { FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { finalize, first } from 'rxjs/operators';
 
-import { JogadorLogin } from 'src/app/core/models/jogador/jogador-login.model';
+import { JogadorSignup } from 'src/app/core/models/jogador/jogador-signup.model';
 import { JogadorService } from 'src/app/core/services/jogador/jogador.service';
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  selector: 'app-signup',
+  templateUrl: './signup.component.html',
+  styleUrls: ['./signup.component.css']
 })
-export class LoginComponent implements OnInit {
+export class SignupComponent implements OnInit {
 
   loading = false
 
@@ -20,12 +20,13 @@ export class LoginComponent implements OnInit {
     private router: Router
   ) { }
 
-  ngOnInit(): void { }
+  ngOnInit(): void {
+  }
 
-  logIn(form: FormGroup): void {
-    this.loading = true;
-    const login = form.value as JogadorLogin
-    this.jogadorService.authenticate(login)
+  signUp(form: FormGroup): void {
+    this.loading = true
+    const jogador = form.value as JogadorSignup
+    this.jogadorService.register(jogador)
       .pipe(first(), finalize(() => this.loading = false))
       .subscribe(() => { this.router.navigate(['stefamons']) })
   }

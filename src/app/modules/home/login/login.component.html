@@ -2,8 +2,13 @@
     <div class="p-col-12 p-lg-6">
         <img alt="Logo do jogo" src="assets/header.png" class="max-w-full" />
     </div>
-    <div class="p-col-12 p-lg-6 p-xl-4">
-        <app-jogador-form title="Bem-vindo" submitLabel="Entrar" (submitEvent)="logIn($event)"></app-jogador-form>
+    <div class="p-col-10 p-md-8 p-lg-6 p-xl-4">
+        <app-jogador-form title="Entre para jogar" submitLabel="Entrar" (submitEvent)="logIn($event)">
+            <div class="p-d-flex p-ai-center p-mt-3">
+                <p>Não possui uma conta?</p>
+                <button pButton label="Cadastre-se" class="p-button-link p-pl-1" [routerLink]="['signup']"></button>
+            </div>
+        </app-jogador-form>
     </div>
 </div>
 <app-block-spinner [blocked]="loading"></app-block-spinner>
