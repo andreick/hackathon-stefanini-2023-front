@@ -10,6 +10,7 @@ import { StefamonListComponent } from './stefamon-list/stefamon-list.component';
   imports: [
     SharedModule,
     StefamonRoutingModule
-  ]
+  ],
+  exports: [StefamonComponent]
 })
 export class StefamonModule { }
