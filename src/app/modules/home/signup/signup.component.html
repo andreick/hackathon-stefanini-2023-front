@@ -1,6 +1,6 @@
 <div class="p-grid p-ai-center p-jc-evenly h-full p-m-0">
     <div class="p-col-12 p-md-10 p-lg-8 p-xl-6">
-        <app-jogador-form title="Cadastre-se" submitLabel="Cadastrar" (submitEvent)="signUp($event)">
+        <app-jogador-form title="Cadastre-se" submitLabel="Cadastrar" (submitEvent)="submit($event)">
             <div *ngIf="stefamons$ | async as stefamons">
                 <p class="p-text-center text-xl p-mb-3">Escolha o seu primeiro StefaMon!</p>
                 <div class="p-grid">
@@ -24,3 +24,4 @@
     </div>
 </div>
 <app-block-spinner [blocked]="loading"></app-block-spinner>
+<app-custom-confirm-dialog></app-custom-confirm-dialog>

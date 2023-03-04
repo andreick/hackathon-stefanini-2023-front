@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ConfirmationService } from 'primeng/api';
 import { Observable } from 'rxjs';
 import { finalize, first } from 'rxjs/operators';
 
@@ -19,11 +20,13 @@ export class SignupComponent implements OnInit {
   stefamons$!: Observable<Stefamon[]>
 
   loading = false
+  
   selectedStefamon: Stefamon | null = null
 
   constructor(
     private stefamonInicialService: StefamonInicialService,
     private jogadorService: JogadorService,
+    private confirmationService: ConfirmationService,
     private router: Router
   ) { }
 
@@ -34,10 +37,22 @@ export class SignupComponent implements OnInit {
   }
 
   selectStefamon(stefamon: Stefamon): void {
-    this.selectedStefamon = stefamon
+    this.selectedStefamon = (stefamon.id !== this.selectedStefamon?.id) ? stefamon : null
   }
 
-  signUp(form: FormGroup): void {
+  submit(form: FormGroup): void {
+    if (this.selectedStefamon) {
+      console.log(this.selectedStefamon)
+      this.signUp(form)
+    } else {
+      this.confirmationService.confirm({
+        message: 'Tem certeza que não deseja escolher o seu primerio StefaMon agora?',
+        accept: () => this.signUp(form)
+      })
+    }
+  }
+
+  private signUp(form: FormGroup): void {
     this.loading = true
     const jogador = form.value as JogadorSignup
     jogador.idStefamonInicial = this.selectedStefamon?.id
