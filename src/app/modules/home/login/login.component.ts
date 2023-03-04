@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
-import { finalize, first } from 'rxjs/operators';
+import { finalize, first, tap } from 'rxjs/operators';
 
 import { JogadorLogin } from 'src/app/core/models/jogador/jogador-login.model';
+import { JogadorLoginService } from 'src/app/core/services/jogador/jogador-login.service';
 import { JogadorService } from 'src/app/core/services/jogador/jogador.service';
 
 @Component({
@@ -17,6 +18,7 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private jogadorService: JogadorService,
+    private jogadorLoginService: JogadorLoginService,
     private router: Router
   ) { }
 
@@ -26,7 +28,9 @@ export class LoginComponent implements OnInit {
     this.loading = true;
     const login = form.value as JogadorLogin
     this.jogadorService.authenticate(login)
-      .pipe(first(), finalize(() => this.loading = false))
+      .pipe(first(),
+        tap((token) => { this.jogadorLoginService.logIn(token) }),
+        finalize(() => this.loading = false))
       .subscribe(() => { this.router.navigate(['stefamons']) })
   }
 }
