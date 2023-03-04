@@ -10,14 +10,16 @@ import { ButtonModule } from 'primeng/button';
 import { BlockUIModule } from 'primeng/blockui';
 import { MenubarModule } from 'primeng/menubar';
 import { InputTextModule } from 'primeng/inputtext';
+import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { ProgressSpinnerModule } from 'primeng/progressspinner';
 
 import { HeaderComponent } from './components/header/header.component';
 import { InputValidationComponent } from './components/input-validation/input-validation.component';
 import { BlockSpinnerComponent } from './components/block-spinner/block-spinner.component';
+import { CustomConfirmDialogComponent } from './components/custom-confirm-dialog/custom-confirm-dialog.component';
 
 @NgModule({
-  declarations: [HeaderComponent, InputValidationComponent, BlockSpinnerComponent],
+  declarations: [HeaderComponent, InputValidationComponent, BlockSpinnerComponent, CustomConfirmDialogComponent],
   imports: [
     CommonModule,
     HttpClientModule,
@@ -28,6 +30,7 @@ import { BlockSpinnerComponent } from './components/block-spinner/block-spinner.
     BlockUIModule,
     MenubarModule,
     InputTextModule,
+    ConfirmDialogModule,
     ProgressSpinnerModule
   ],
   exports: [
@@ -40,7 +43,8 @@ import { BlockSpinnerComponent } from './components/block-spinner/block-spinner.
     InputTextModule,
     HeaderComponent,
     InputValidationComponent,
-    BlockSpinnerComponent
+    BlockSpinnerComponent,
+    CustomConfirmDialogComponent
   ],
 })
 export class SharedModule {
