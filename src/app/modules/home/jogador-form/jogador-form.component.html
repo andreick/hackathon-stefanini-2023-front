@@ -18,9 +18,12 @@
                 [minLength]="4" [maxLength]="10"></app-input-validation>
         </div>
     </form>
+    <ng-content></ng-content>
     <div class="p-d-flex p-flex-column p-ai-center p-mt-2">
         <button pButton [label]="submitLabel" class="p-button-primary p-button-lg w-full" [disabled]="!form.valid"
             (click)="submit()"></button>
-        <ng-content></ng-content>
     </div>
+    <p-footer>
+        <ng-content select="[footer]"></ng-content>
+    </p-footer>
 </p-card>

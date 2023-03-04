@@ -1,10 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
 import { finalize, first } from 'rxjs/operators';
 
 import { JogadorSignup } from 'src/app/core/models/jogador/jogador-signup.model';
+import { Stefamon } from 'src/app/core/models/stefamon/stefamon.model';
 import { JogadorService } from 'src/app/core/services/jogador/jogador.service';
+import { StefamonInicialService } from 'src/app/core/services/stefamon/stefamon-inicial.service';
 
 @Component({
   selector: 'app-signup',
@@ -13,19 +16,31 @@ import { JogadorService } from 'src/app/core/services/jogador/jogador.service';
 })
 export class SignupComponent implements OnInit {
 
+  stefamons$!: Observable<Stefamon[]>
+
   loading = false
+  selectedStefamon: Stefamon | null = null
 
   constructor(
+    private stefamonInicialService: StefamonInicialService,
     private jogadorService: JogadorService,
     private router: Router
   ) { }
 
   ngOnInit(): void {
+    this.loading = true
+    this.stefamons$ = this.stefamonInicialService.fetchStefamons()
+      .pipe(first(), finalize(() => this.loading = false))
+  }
+
+  selectStefamon(stefamon: Stefamon): void {
+    this.selectedStefamon = stefamon
   }
 
   signUp(form: FormGroup): void {
     this.loading = true
     const jogador = form.value as JogadorSignup
+    jogador.idStefamonInicial = this.selectedStefamon?.id
     this.jogadorService.register(jogador)
       .pipe(first(), finalize(() => this.loading = false))
       .subscribe(() => { this.router.navigate(['stefamons']) })

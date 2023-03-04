@@ -1,4 +1,5 @@
 export interface Stefamon {
+  id: number
   nome: string
   vida: number
   ataque: number
