@@ -1,0 +1,29 @@
+<p-card>
+    <p-header>
+        <h2 class="p-text-center text-4xl p-pt-4">{{title}}</h2>
+    </p-header>
+    <form [formGroup]="form" class="p-fluid p-formgrid p-grid">
+        <div class="p-field p-col-12 p-md-6">
+            <label for="nickname" class="p-sr-only">Apelido</label>
+            <input pInputText id="nickname" type="text" placeholder="Apelido" class="p-inputtext-lg"
+                formControlName="nickname">
+            <app-input-validation inputLabel="Apelido" class="inputvalidation-lg" [control]="nickname"
+                [notBlank]="true"></app-input-validation>
+        </div>
+        <div class="p-field p-col-12 p-md-6">
+            <label for="senha" class="p-sr-only">Senha</label>
+            <input pInputText id="senha" type="password" placeholder="Senha" class="p-inputtext-lg"
+                formControlName="senha">
+            <app-input-validation inputLabel="Senha" class="inputvalidation-lg" [control]="senha" [notBlank]="true"
+                [minLength]="4" [maxLength]="10"></app-input-validation>
+        </div>
+    </form>
+    <ng-content></ng-content>
+    <div class="p-d-flex p-flex-column p-ai-center p-mt-2">
+        <button pButton [label]="submitLabel" class="p-button-primary p-button-lg w-full" [disabled]="!form.valid"
+            (click)="submit()"></button>
+    </div>
+    <p-footer>
+        <ng-content select="[footer]"></ng-content>
+    </p-footer>
+</p-card>

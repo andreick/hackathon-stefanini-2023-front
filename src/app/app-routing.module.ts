@@ -10,8 +10,7 @@ const routes: Routes = [
   },
   {
     path: 'stefamons',
-    loadChildren: () => import('./modules/stefamon/stefamon.module').then((module) => module.StefamonModule),
-    canLoad: [AuthGuard]
+    loadChildren: () => import('./modules/stefamons/stefamon.module').then((module) => module.StefamonModule),
   },
 ];
 

@@ -1,25 +1,14 @@
-<p-card>
-    <p-header>
-        <h2 class="p-text-center text-4xl p-pt-4">Login</h2>
-    </p-header>
-    <form [formGroup]="form" class="p-fluid p-formgrid p-grid">
-        <div class="p-field p-col-12 p-md-6">
-            <label for="nickname" class="p-sr-only">Apelido</label>
-            <input pInputText id="nickname" type="text" placeholder="Apelido" class="p-inputtext-lg"
-                formControlName="nickname">
-            <app-input-validation inputLabel="Apelido" class="inputvalidation-lg" [control]="nickname"
-                [notBlank]="true"></app-input-validation>
-        </div>
-        <div class="p-field p-col-12 p-md-6">
-            <label for="senha" class="p-sr-only">Senha</label>
-            <input pInputText id="senha" type="password" placeholder="Senha" class="p-inputtext-lg"
-                formControlName="senha">
-            <app-input-validation inputLabel="Senha" class="inputvalidation-lg" [control]="senha" [notBlank]="true"
-                [minLength]="4" [maxLength]="10"></app-input-validation>
-        </div>
-        <div class="p-col-12 p-mt-2">
-            <button pButton type="button" label="Entrar" class="p-button-success p-button-lg" [disabled]="!form.valid"
-                (click)="entrar()"></button>
-        </div>
-    </form>
-</p-card>
+<div class="p-grid p-ai-center p-jc-evenly h-full p-m-0">
+    <div class="p-col-12 p-lg-6">
+        <img alt="Logo do jogo" src="assets/header.png" class="max-w-full" />
+    </div>
+    <div class="p-col-10 p-md-8 p-lg-6 p-xl-4">
+        <app-jogador-form title="Entre para jogar" submitLabel="Entrar" (submitEvent)="logIn($event)">
+            <div footer class="p-d-flex p-ai-center p-jc-center">
+                <p>Não possui uma conta?</p>
+                <button pButton label="Cadastre-se" class="p-button-link p-pl-1" [routerLink]="['signup']"></button>
+            </div>
+        </app-jogador-form>
+    </div>
+</div>
+<app-block-spinner [blocked]="loading"></app-block-spinner>

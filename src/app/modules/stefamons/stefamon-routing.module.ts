@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { StefamonComponent } from './stefamon.component';
+import { StefamonListComponent } from './stefamon-list/stefamon-list.component';
 
 const routes: Routes = [
-  { path: '', component: StefamonComponent },
+  { path: '', component: StefamonListComponent },
 ];
 
 @NgModule({
