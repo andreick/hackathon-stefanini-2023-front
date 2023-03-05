@@ -1,3 +1,7 @@
+:host ::ng-deep .p-menubar.p-component {
+    height: 4.5rem
+}
+
 :hover .logo {
     cursor: pointer;
 }
@@ -14,4 +18,8 @@
     font-size: 1.75rem;
     height: 1.75rem;
     width: 1.75rem;
+}
+
+:host ::ng-deep .p-button.p-button-link:focus {
+    box-shadow: none;
 }
