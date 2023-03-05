@@ -2,4 +2,19 @@
     <ng-template pTemplate="start">
         <img alt="Nome do jogo" src="../../../../assets/logo.png" height="40" class="logo" [routerLink]="['']">
     </ng-template>
+    <ng-template pTemplate="end">
+        <div *ngIf="jogador$ | async as jogador" class="p-d-flex p-ai-center gap-3">
+            <div class="p-d-flex p-ai-baseline gap-2">
+                <div class="p-d-flex p-ai-center gap-1">
+                    <mat-icon class="account-icon">account_circle</mat-icon>
+                    <p class="text-xl">{{jogador.nickname}}</p>
+                </div>
+                <div class="p-d-flex p-ai-center gap-1">
+                    <mat-icon>monetization_on</mat-icon>
+                    <p>{{jogador.saldo}}</p>
+                </div>
+            </div>
+            <button pButton label="Sair" class="p-button-link p-p-0" (click)="logOut()"></button>
+        </div>
+    </ng-template>
 </p-menubar>

@@ -58,6 +58,6 @@ export class SignupComponent implements OnInit {
     jogador.idStefamonInicial = this.selectedStefamon?.id
     this.jogadorService.register(jogador)
       .pipe(first(), finalize(() => this.loading = false))
-      .subscribe(() => { this.router.navigate(['stefamons']) })
+      .subscribe(() => { this.router.navigate(['']) })
   }
 }
