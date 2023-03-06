@@ -3,32 +3,39 @@
         <img alt="Stefamon" [src]="stefamon.urlFoto">
         <h2 class="stefamon-nome">{{stefamon.nome | titlecase}}</h2>
     </p-header>
-    <div class="p-d-flex p-flex-column p-ai-center stefamon-content">
-        <div class="attributes">
-            <div class="p-d-flex p-ai-center">
+    <div class="p-d-flex p-flex-column p-ai-center">
+        <div>
+            <div class="attribute">
                 <mat-icon>favorite</mat-icon>
                 <p>Vida: {{stefamon.vida}}</p>
             </div>
-            <div class="p-d-flex p-ai-center">
+            <div class="attribute">
                 <mat-icon svgIcon="swords"></mat-icon>
                 <p>Ataque: {{stefamon.ataque}}</p>
             </div>
-            <div class="p-d-flex p-ai-center">
+            <div class="attribute">
                 <mat-icon>health_and_safety</mat-icon>
                 <p>Defesa: {{stefamon.defesa}}</p>
             </div>
-            <div class="p-d-flex p-ai-center">
+            <div class="attribute">
                 <mat-icon>psychology</mat-icon>
                 <p>Inteligência: {{stefamon.inteligencia}}</p>
             </div>
-            <div class="p-d-flex p-ai-center">
+            <div class="attribute">
                 <mat-icon>bolt</mat-icon>
                 <p>Poder: {{stefamon.poder}}</p>
             </div>
-            <div class="p-d-flex p-ai-center">
+            <div class="attribute">
                 <mat-icon svgIcon="fast"></mat-icon>
                 <p>Velocidade: {{stefamon.velocidade}}</p>
             </div>
+            <div *ngIf="stefamon.preco" class="attribute">
+                <mat-icon>monetization_on</mat-icon>
+                <p>Preço: {{stefamon.preco}}</p>
+            </div>
         </div>
     </div>
+    <p-footer>
+        <ng-content></ng-content>
+    </p-footer>
 </p-card>

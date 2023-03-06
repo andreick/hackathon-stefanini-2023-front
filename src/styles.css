@@ -1,5 +1,6 @@
 :root {
   --app-primary-color: #191919;
+  --app-secondary-font-family: Roboto, serif;
 }
 
 /* Famoso reset do css */

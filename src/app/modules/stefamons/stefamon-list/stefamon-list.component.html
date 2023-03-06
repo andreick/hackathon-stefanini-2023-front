@@ -1,7 +1,12 @@
 <div *ngIf="stefamons$ | async as stefamons">
     <div class="p-grid p-m-0">
         <div *ngFor="let stefamon of stefamons" class="p-col-6 p-md-4 p-lg-3 p-xl-2">
-            <app-stefamon [stefamon]="stefamon"></app-stefamon>
+            <app-stefamon [stefamon]="stefamon">
+                <div *ngIf="jogador$ | async as jogador" class="p-d-flex p-jc-center p-pb-3">
+                    <button pButton label="Comprar" class="p-button-secondary"
+                        [disabled]="jogador.saldo < (stefamon.preco || 0)"></button>
+                </div>
+            </app-stefamon>
         </div>
     </div>
 </div>
