@@ -24,7 +24,7 @@ export class LoginGuard implements CanActivate, CanLoad {
 
   private checkLogin(): true | UrlTree {
     if (this.jogadorLoginService.isLoggedIn()) {
-      return this.router.parseUrl('stefamons')
+      return this.router.parseUrl('jogador')
     }
     return true;
   }

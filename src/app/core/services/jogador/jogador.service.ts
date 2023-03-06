@@ -25,6 +25,10 @@ export class JogadorService {
     return this.http.get<Jogador>(`${this.API}/${id}`)
   }
 
+  fetchByIdWithStefamons(id: number): Observable<Jogador> {
+    return this.http.get<Jogador>(`${this.API}/${id}/stefamons`)
+  }
+
   authenticate(login: JogadorLogin): Observable<AuthToken> {
     return this.http.post<AuthToken>(`${this.API}/login`, login)
   }

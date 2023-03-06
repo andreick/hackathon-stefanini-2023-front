@@ -1,0 +1,10 @@
+<div class="p-d-flex p-flex-column h-full">
+    <div *ngIf="jogador$ | async as jogador">
+        <h2 class="jogador-stefamons-title">Meus StefaMons:</h2>
+        <div class="p-grid p-m-0">
+            <div *ngFor="let stefamon of jogador.stefamons" class="p-col-6 p-md-4 p-lg-3 p-xl-2">
+                <app-stefamon [stefamon]="stefamon"></app-stefamon>
+            </div>
+        </div>
+    </div>
+</div>

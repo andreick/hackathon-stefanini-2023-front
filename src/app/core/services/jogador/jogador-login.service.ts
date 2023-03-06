@@ -43,7 +43,7 @@ export class JogadorLoginService {
 
   private fetchJogador(token: String): void {
     const id = Number(token)
-    this.jogadorService.fetchById(id)
+    this.jogadorService.fetchByIdWithStefamons(id)
       .pipe(first())
       .subscribe((jogador) => { this.jogadorSubject.next(jogador) })
   }

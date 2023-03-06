@@ -31,6 +31,6 @@ export class LoginComponent implements OnInit {
       .pipe(first(),
         tap((token) => { this.jogadorLoginService.logIn(token) }),
         finalize(() => this.loading = false))
-      .subscribe(() => { this.router.navigate(['stefamons']) })
+      .subscribe(() => { this.router.navigate(['jogador']) })
   }
 }
