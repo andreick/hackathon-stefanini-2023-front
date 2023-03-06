@@ -6,6 +6,7 @@ import { MatIconModule, MatIconRegistry } from '@angular/material/icon'
 import { DomSanitizer } from "@angular/platform-browser";
 
 import { CardModule } from 'primeng/card';
+import { ToastModule } from 'primeng/toast';
 import { ButtonModule } from 'primeng/button';
 import { BlockUIModule } from 'primeng/blockui';
 import { MenubarModule } from 'primeng/menubar';
@@ -17,15 +18,17 @@ import { HeaderComponent } from './components/header/header.component';
 import { InputValidationComponent } from './components/input-validation/input-validation.component';
 import { BlockSpinnerComponent } from './components/block-spinner/block-spinner.component';
 import { CustomConfirmDialogComponent } from './components/custom-confirm-dialog/custom-confirm-dialog.component';
+import { GlobalToastComponent } from './components/global-toast/global-toast.component';
 
 @NgModule({
-  declarations: [HeaderComponent, InputValidationComponent, BlockSpinnerComponent, CustomConfirmDialogComponent],
+  declarations: [HeaderComponent, InputValidationComponent, BlockSpinnerComponent, CustomConfirmDialogComponent, GlobalToastComponent],
   imports: [
     CommonModule,
     HttpClientModule,
     ReactiveFormsModule,
     MatIconModule,
     CardModule,
+    ToastModule,
     ButtonModule,
     BlockUIModule,
     MenubarModule,
@@ -44,7 +47,8 @@ import { CustomConfirmDialogComponent } from './components/custom-confirm-dialog
     HeaderComponent,
     InputValidationComponent,
     BlockSpinnerComponent,
-    CustomConfirmDialogComponent
+    CustomConfirmDialogComponent,
+    GlobalToastComponent
   ],
 })
 export class SharedModule {

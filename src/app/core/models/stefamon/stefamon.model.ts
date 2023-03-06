@@ -8,4 +8,5 @@ export interface Stefamon {
   poder: number
   velocidade: number
   urlFoto: number
+  preco?: number
 }

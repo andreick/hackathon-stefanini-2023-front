@@ -1,13 +1,24 @@
+:host {
+    --card-outline: 0.25rem solid;
+    --card-border-radius: 0.75rem;
+    --stefamon-background-color: #f2f2f2;
+}
+
 :host-context(.selected) ::ng-deep .p-card {
-    outline: solid;
+    outline: var(--card-outline);
 }
 
 :host-context(.selectable) ::ng-deep :hover .p-card {
-    outline: solid;
+    outline: var(--card-outline);
+}
+
+:host ::ng-deep .p-card {
+    border: 2px solid var(--stefamon-background-color);
+    border-radius: var(--card-border-radius);
 }
 
 :host ::ng-deep .p-card .p-card-header {
-    background-color: #f2f2f2;
+    background-color: var(--stefamon-background-color);
     padding: 0.5rem;
     border-radius: 0.5rem;
 }
@@ -15,16 +26,25 @@
 :host ::ng-deep .p-card .p-card-body {
     background-color: var(--app-primary-color);
     padding: 0;
+    border-radius: var(--card-border-radius);
 }
 
 .stefamon-nome {
     color: var(--primary-color-text);
-    font-size: 2.25rem;
-    font-style: italic;
+    font: italic bold 2.25rem var(--font-family);
     text-align: center;
 }
 
-.attributes p {
-    font-size: 1.25rem;
+.attribute {
+    display: flex;
+    align-items: center;
+}
+
+.attribute p {
+    font: 1.25rem var(--app-secondary-font-family);
     padding: 0.25rem 0.5rem;
+}
+
+:host ::ng-deep .p-card .p-card-footer {
+    padding: 0;
 }
