@@ -9,6 +9,7 @@ import { JogadorSignup } from 'src/app/core/models/jogador/jogador-signup.model'
 import { Stefamon } from 'src/app/core/models/stefamon/stefamon.model';
 import { JogadorService } from 'src/app/core/services/jogador/jogador.service';
 import { StefamonInicialService } from 'src/app/core/services/stefamon/stefamon-inicial.service';
+import { GlobalToastService } from 'src/app/core/services/toast/global-toast.service';
 
 @Component({
   selector: 'app-signup',
@@ -20,13 +21,14 @@ export class SignupComponent implements OnInit {
   stefamons$!: Observable<Stefamon[]>
 
   loading = false
-  
+
   selectedStefamon: Stefamon | null = null
 
   constructor(
     private stefamonInicialService: StefamonInicialService,
     private jogadorService: JogadorService,
     private confirmationService: ConfirmationService,
+    private globalToastService: GlobalToastService,
     private router: Router
   ) { }
 
@@ -42,7 +44,6 @@ export class SignupComponent implements OnInit {
 
   submit(form: FormGroup): void {
     if (this.selectedStefamon) {
-      console.log(this.selectedStefamon)
       this.signUp(form)
     } else {
       this.confirmationService.confirm({
@@ -58,6 +59,9 @@ export class SignupComponent implements OnInit {
     jogador.idStefamonInicial = this.selectedStefamon?.id
     this.jogadorService.register(jogador)
       .pipe(first(), finalize(() => this.loading = false))
-      .subscribe(() => { this.router.navigate(['']) })
+      .subscribe(() => {
+        this.globalToastService.showSuccess('Sua conta foi cadastrada')
+        this.router.navigate([''])
+      })
   }
 }
