@@ -29,9 +29,11 @@
                 <mat-icon svgIcon="fast"></mat-icon>
                 <p>Velocidade: {{stefamon.velocidade}}</p>
             </div>
-            <div *ngIf="stefamon.preco" class="attribute">
-                <mat-icon>monetization_on</mat-icon>
-                <p>Preço: {{stefamon.preco}}</p>
+            <div [hidden]="!preco">
+                <div class="attribute">
+                    <mat-icon>monetization_on</mat-icon>
+                    <p>Preço: {{stefamon.preco}}</p>
+                </div>
             </div>
         </div>
     </div>

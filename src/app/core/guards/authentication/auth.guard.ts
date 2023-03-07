@@ -15,17 +15,18 @@ export class AuthGuard implements CanActivate, CanLoad {
   ) { }
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean | UrlTree | Observable<boolean | UrlTree> | Promise<boolean | UrlTree> {
-    return this.checkAuthentication()
+    return this.checkAuthentication(state.url.split('/')[1])
   }
 
   canLoad(route: Route, segments: UrlSegment[]): boolean | UrlTree | Observable<boolean | UrlTree> | Promise<boolean | UrlTree> {
-    return this.checkAuthentication()
+    return this.checkAuthentication(segments[0].path)
   }
 
-  private checkAuthentication(): true | UrlTree {
-    if (!this.jogadorLoginService.isLoggedIn()) {
-      return this.router.parseUrl('');
+  private checkAuthentication(root: string): true | UrlTree {
+    const isHome = root === 'home'
+    if (this.jogadorLoginService.isLoggedIn()) {
+      return isHome ? this.router.parseUrl('jogador') : true
     }
-    return true;
+    return isHome ? true : this.router.parseUrl('home')
   }
 }

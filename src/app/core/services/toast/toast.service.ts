@@ -6,7 +6,7 @@ import { Message } from 'primeng/api';
 @Injectable({
   providedIn: 'root'
 })
-export class GlobalToastService {
+export class ToastService {
 
   private messageSubject = new Subject<Message>()
 
