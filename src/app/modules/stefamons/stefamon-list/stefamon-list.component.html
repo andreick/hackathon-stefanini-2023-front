@@ -4,7 +4,7 @@
             <app-stefamon [stefamon]="stefamon">
                 <div *ngIf="jogador$ | async as jogador" class="p-d-flex p-jc-center p-pb-3">
                     <button pButton label="Comprar" class="p-button-secondary"
-                        [disabled]="jogador.saldo < (stefamon.preco || 0)"></button>
+                        [disabled]="jogador.saldo < stefamon.preco"></button>
                 </div>
             </app-stefamon>
         </div>

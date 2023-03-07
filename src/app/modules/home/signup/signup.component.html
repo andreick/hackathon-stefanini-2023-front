@@ -5,7 +5,7 @@
                 <p class="p-text-center text-xl p-mb-3">Escolha o seu primeiro StefaMon!</p>
                 <div class="p-grid">
                     <div *ngFor="let stefamon of stefamons" class="p-col-12 p-md-6 p-lg-4">
-                        <app-stefamon [stefamon]="stefamon" class="selectable"
+                        <app-stefamon [stefamon]="stefamon" [preco]="false" class="selectable"
                             [class.selected]="stefamon.id === selectedStefamon?.id"
                             (click)="selectStefamon(stefamon)"></app-stefamon>
                     </div>
