@@ -9,7 +9,7 @@ import { JogadorSignup } from 'src/app/core/models/jogador/jogador-signup.model'
 import { Stefamon } from 'src/app/core/models/stefamon/stefamon.model';
 import { JogadorService } from 'src/app/core/services/jogador/jogador.service';
 import { StefamonService } from 'src/app/core/services/stefamon/stefamon.service';
-import { GlobalToastService } from 'src/app/core/services/toast/global-toast.service';
+import { ToastService } from 'src/app/core/services/toast/toast.service';
 
 @Component({
   selector: 'app-signup',
@@ -28,7 +28,7 @@ export class SignupComponent implements OnInit {
     private stefamonService: StefamonService,
     private jogadorService: JogadorService,
     private confirmationService: ConfirmationService,
-    private globalToastService: GlobalToastService,
+    private toastService: ToastService,
     private router: Router
   ) { }
 
@@ -60,7 +60,7 @@ export class SignupComponent implements OnInit {
     this.jogadorService.register(jogador)
       .pipe(first(), finalize(() => this.loading = false))
       .subscribe(() => {
-        this.globalToastService.showSuccess('Sua conta foi cadastrada')
+        this.toastService.showSuccess('Sua conta foi cadastrada')
         this.router.navigate([''])
       })
   }

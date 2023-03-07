@@ -17,11 +17,11 @@ import { ProgressSpinnerModule } from 'primeng/progressspinner';
 import { HeaderComponent } from './components/header/header.component';
 import { InputValidationComponent } from './components/input-validation/input-validation.component';
 import { BlockSpinnerComponent } from './components/block-spinner/block-spinner.component';
-import { CustomConfirmDialogComponent } from './components/custom-confirm-dialog/custom-confirm-dialog.component';
-import { GlobalToastComponent } from './components/global-toast/global-toast.component';
+import { ConfirmDialogComponent } from './components/confirm-dialog/confirm-dialog.component';
+import { ToastComponent } from './components/toast/toast.component';
 
 @NgModule({
-  declarations: [HeaderComponent, InputValidationComponent, BlockSpinnerComponent, CustomConfirmDialogComponent, GlobalToastComponent],
+  declarations: [HeaderComponent, InputValidationComponent, BlockSpinnerComponent, ConfirmDialogComponent, ToastComponent],
   imports: [
     CommonModule,
     HttpClientModule,
@@ -47,8 +47,8 @@ import { GlobalToastComponent } from './components/global-toast/global-toast.com
     HeaderComponent,
     InputValidationComponent,
     BlockSpinnerComponent,
-    CustomConfirmDialogComponent,
-    GlobalToastComponent
+    ConfirmDialogComponent,
+    ToastComponent
   ],
 })
 export class SharedModule {

@@ -7,7 +7,7 @@ import { finalize, first, tap } from 'rxjs/operators';
 import { JogadorLogin } from 'src/app/core/models/jogador/jogador-login.model';
 import { JogadorLoginService } from 'src/app/core/services/jogador/jogador-login.service';
 import { JogadorService } from 'src/app/core/services/jogador/jogador.service';
-import { GlobalToastService } from 'src/app/core/services/toast/global-toast.service';
+import { ToastService } from 'src/app/core/services/toast/toast.service';
 
 @Component({
   selector: 'app-login',
@@ -21,7 +21,7 @@ export class LoginComponent implements OnInit {
   constructor(
     private jogadorService: JogadorService,
     private jogadorLoginService: JogadorLoginService,
-    private globalToastService: GlobalToastService,
+    private toastService: ToastService,
     private router: Router
   ) { }
 
@@ -41,7 +41,7 @@ export class LoginComponent implements OnInit {
         (error) => {
           if (error instanceof HttpErrorResponse) {
             if (error.status === 401) {
-              this.globalToastService.showError('Apelido ou senha incorretos')
+              this.toastService.showError('Apelido ou senha incorretos')
             }
           }
         }
