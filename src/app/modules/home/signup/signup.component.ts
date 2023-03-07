@@ -8,7 +8,7 @@ import { finalize, first } from 'rxjs/operators';
 import { JogadorSignup } from 'src/app/core/models/jogador/jogador-signup.model';
 import { Stefamon } from 'src/app/core/models/stefamon/stefamon.model';
 import { JogadorService } from 'src/app/core/services/jogador/jogador.service';
-import { StefamonInicialService } from 'src/app/core/services/stefamon/stefamon-inicial.service';
+import { StefamonService } from 'src/app/core/services/stefamon/stefamon.service';
 import { GlobalToastService } from 'src/app/core/services/toast/global-toast.service';
 
 @Component({
@@ -25,7 +25,7 @@ export class SignupComponent implements OnInit {
   selectedStefamon: Stefamon | null = null
 
   constructor(
-    private stefamonInicialService: StefamonInicialService,
+    private stefamonService: StefamonService,
     private jogadorService: JogadorService,
     private confirmationService: ConfirmationService,
     private globalToastService: GlobalToastService,
@@ -34,7 +34,7 @@ export class SignupComponent implements OnInit {
 
   ngOnInit(): void {
     this.loading = true
-    this.stefamons$ = this.stefamonInicialService.fetchStefamons()
+    this.stefamons$ = this.stefamonService.fetchStefamonsIniciais()
       .pipe(first(), finalize(() => this.loading = false))
   }
 

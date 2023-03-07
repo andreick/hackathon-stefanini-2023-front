@@ -19,4 +19,7 @@ export class StefamonService {
     return this.http.get<Stefamon[]>(this.API);
   }
 
+  fetchStefamonsIniciais(): Observable<Stefamon[]> {
+    return this.http.get<Stefamon[]>(`${this.API}/iniciais`);
+  }
 }
