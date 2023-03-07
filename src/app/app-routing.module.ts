@@ -1,14 +1,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from './core/guards/authentication/auth.guard';
-import { LoginGuard } from './core/guards/login/login.guard';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   {
     path: 'home',
     loadChildren: () => import('./modules/home/home.module').then((module) => module.HomeModule),
-    canLoad: [LoginGuard]
+    canLoad: [AuthGuard]
   },
   {
     path: 'jogador',
