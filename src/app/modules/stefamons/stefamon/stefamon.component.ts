@@ -10,6 +10,8 @@ export class StefamonComponent implements OnInit {
 
   @Input() stefamon!: Stefamon
 
+  @Input() preco = true
+
   constructor() { }
 
   ngOnInit(): void {

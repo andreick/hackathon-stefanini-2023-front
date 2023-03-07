@@ -8,8 +8,8 @@ import { finalize, first } from 'rxjs/operators';
 import { JogadorSignup } from 'src/app/core/models/jogador/jogador-signup.model';
 import { Stefamon } from 'src/app/core/models/stefamon/stefamon.model';
 import { JogadorService } from 'src/app/core/services/jogador/jogador.service';
-import { StefamonInicialService } from 'src/app/core/services/stefamon/stefamon-inicial.service';
-import { GlobalToastService } from 'src/app/core/services/toast/global-toast.service';
+import { StefamonService } from 'src/app/core/services/stefamon/stefamon.service';
+import { ToastService } from 'src/app/core/services/toast/toast.service';
 
 @Component({
   selector: 'app-signup',
@@ -25,16 +25,16 @@ export class SignupComponent implements OnInit {
   selectedStefamon: Stefamon | null = null
 
   constructor(
-    private stefamonInicialService: StefamonInicialService,
+    private stefamonService: StefamonService,
     private jogadorService: JogadorService,
     private confirmationService: ConfirmationService,
-    private globalToastService: GlobalToastService,
+    private toastService: ToastService,
     private router: Router
   ) { }
 
   ngOnInit(): void {
     this.loading = true
-    this.stefamons$ = this.stefamonInicialService.fetchStefamons()
+    this.stefamons$ = this.stefamonService.fetchStefamonsIniciais()
       .pipe(first(), finalize(() => this.loading = false))
   }
 
@@ -60,7 +60,7 @@ export class SignupComponent implements OnInit {
     this.jogadorService.register(jogador)
       .pipe(first(), finalize(() => this.loading = false))
       .subscribe(() => {
-        this.globalToastService.showSuccess('Sua conta foi cadastrada')
+        this.toastService.showSuccess('Sua conta foi cadastrada')
         this.router.navigate([''])
       })
   }
