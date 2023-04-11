@@ -1,5 +1,5 @@
 ![Logo do Desafio](https://user-images.githubusercontent.com/61603835/231285023-23997027-9b36-445b-afcf-db4ec977d981.png#vitrinedev)
-### Front-end proposto no Desafio Hackathon Stefanini 2023
+### Front-end para o Desafio Hackathon Stefanini 2023
 
 ![Status: Em Desenvolvimento](https://img.shields.io/static/v1?label=Status&message=Em%20Desenvolvimento&color=GREEN&style=for-the-badge%22)
 
@@ -13,18 +13,18 @@
 ### StefaMon é um sistema de rinha de criaturas mágicas onde jogadores disputam batalhas acirradas em busca de ser o melhor treinador. Vença as batalhas e conquiste seu lugar no ranking.
 
 # Objetivo:
-## Adequar o Front-end de acordo com os requisitos do [Back-end](https://github.com/andreick/hackathon-stefanini-2023-back)
+### Adequar o Front-end de acordo com os requisitos do [Back-end](https://github.com/andreick/hackathon-stefanini-2023-back)
 
 ---
 
 # Funcionalidades:
 
-- [x] ### **Cadastro e login de jogadores;**
-- [x] ### **Página inicial do jogador**
-- [x] ### **Listagem de StefaMons**
-- [ ] ### **Arena de batalhas**
-- [ ] ### **Batalha contra IA**
-- [ ] ### **Batalha contra jogadores**
+- [x] **Cadastro e login de jogadores;**
+- [x] **Página inicial do jogador**
+- [x] **Listagem de StefaMons**
+- [ ] **Arena de batalhas**
+- [ ] **Batalha contra IA**
+- [ ] **Batalha contra jogadores**
 
 # Arquitetura do projeto
 - [Instruções Arquiteturais](./Instruções.md)
